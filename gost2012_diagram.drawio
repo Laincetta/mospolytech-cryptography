@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" pages="1">
+  <diagram name="ГОСТ 34.10-2012" id="GOST2012_MAIN">
+    <mxGraphModel dx="1836" dy="2816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+
+        <!-- COL 1: Создание подписи (ЭКЦ ГОСТ 2012) -->
+        <mxCell id="T1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Создание подписи — ГОСТ Р 34.10-2012&lt;/font&gt;" vertex="1"><mxGeometry x="0" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="S1s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="0" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="S1i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: текст, параметры кривой (a, b, p), базовая точка G, секретный ключ x" vertex="1"><mxGeometry x="0" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="S1q" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Нахождение порядка подгруппы:&#xa;q = find_subgroup_order(G, a, p)&#xa;(перебор точек кривой)" vertex="1"><mxGeometry x="0" y="289" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="S1y" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Открытый ключ:&#xa;Y = [x]G (scalar_mult(x, G, a, p))" vertex="1"><mxGeometry x="0" y="399" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="S1hs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Хеш сообщения (квадратичная свёртка):&#xa;Hm = hash_message(текст, p) mod q&#xa;если Hm=0 → Hm=1" vertex="1"><mxGeometry x="0" y="499" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="S1k" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод случайного k (эфемерный ключ): 1 &lt; k &lt; q" vertex="1"><mxGeometry x="0" y="609" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="S1p" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="P = [k]G = scalar_mult(k, G, a, p)&#xa;r = P.x mod q" vertex="1"><mxGeometry x="0" y="739" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="S1sg" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="s = (k × Hm + r × x) mod q&#xa;если r=0 или s=0 → повторить выбор k" vertex="1"><mxGeometry x="0" y="839" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="S1o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Возврат подписи S = (r, s)&#xa;и открытого ключа Y" vertex="1"><mxGeometry x="0" y="949" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="S1e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="0" y="1079" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="sa1" edge="1" parent="1" source="S1s" target="S1i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa2" edge="1" parent="1" source="S1i" target="S1q" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa3" edge="1" parent="1" source="S1q" target="S1y" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa4" edge="1" parent="1" source="S1y" target="S1hs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa5" edge="1" parent="1" source="S1hs" target="S1k" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa6" edge="1" parent="1" source="S1k" target="S1p" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa7" edge="1" parent="1" source="S1p" target="S1sg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa8" edge="1" parent="1" source="S1sg" target="S1o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="sa9" edge="1" parent="1" source="S1o" target="S1e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- COL 2: Проверка подписи (ЭКЦ ГОСТ 2012) -->
+        <mxCell id="T2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Проверка подписи — ГОСТ Р 34.10-2012&lt;/font&gt;" vertex="1"><mxGeometry x="480" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="V2s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="480" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="V2i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: сообщение, подпись (r, s), параметры кривой (a, b, p), G, открытый ключ Y" vertex="1"><mxGeometry x="480" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="V2q" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="q = find_point_order(G, a, p)&#xa;(порядок точки G на кривой)" vertex="1"><mxGeometry x="480" y="289" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="V2hs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Хеш: Hm = hash_message(текст, p) mod q&#xa;если Hm=0 → Hm=1" vertex="1"><mxGeometry x="480" y="389" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="V2hi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="h_inv = mod_inverse(Hm, q)&#xa;(= Hm⁻¹ mod q)" vertex="1"><mxGeometry x="480" y="489" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="V2u" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="u1 = (s × h_inv) mod q&#xa;u2 = (−r × h_inv) mod q" vertex="1"><mxGeometry x="480" y="589" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="V2p" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="P = u1×G + u2×Y&#xa;= scalar_mult(u1,G) + scalar_mult(u2,Y)" vertex="1"><mxGeometry x="480" y="689" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="V2o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Сравнение:&#xa;P.x mod q = r → подпись ВЕРНА&#xa;P.x mod q ≠ r → подпись НЕВЕРНА" vertex="1"><mxGeometry x="480" y="799" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="V2e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="480" y="929" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="vb1" edge="1" parent="1" source="V2s" target="V2i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb2" edge="1" parent="1" source="V2i" target="V2q" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb3" edge="1" parent="1" source="V2q" target="V2hs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb4" edge="1" parent="1" source="V2hs" target="V2hi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb5" edge="1" parent="1" source="V2hi" target="V2u" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb6" edge="1" parent="1" source="V2u" target="V2p" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb7" edge="1" parent="1" source="V2p" target="V2o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="vb8" edge="1" parent="1" source="V2o" target="V2e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
