@@ -156,13 +156,14 @@ def run_menu(mode):
         print(f"\nИТОГ: {final_text}")
 
 
-while True:
-    print("\n=== A5/2 ===")
-    print("1. Зашифровать\n2. Расшифровать\n0. Выход")
-    ch = input(">> ")
-    if ch == '1':
-        run_menu("ШИФРОВАНИЕ")
-    elif ch == '2':
-        run_menu("РАСШИФРОВАНИЕ")
-    elif ch == '0':
-        break
+if __name__ == "__main__":
+    while True:
+        print("\n=== A5/2 ===")
+        print("1. Зашифровать\n2. Расшифровать\n0. Выход")
+        ch = input(">> ")
+        if ch == '1':
+            run_menu("ШИФРОВАНИЕ")
+        elif ch == '2':
+            run_menu("РАСШИФРОВАНИЕ")
+        elif ch == '0':
+            break

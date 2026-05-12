@@ -71,13 +71,14 @@ def run_menu(mode_code):
     print(f"Результат: {final_text}")
 
 
-while True:
-    print("\n=== Шифр Тритемиуса ===")
-    print("1. Зашифровать\n2. Расшифровать\n0. Выход")
-    ch = input(">> ")
-    if ch == '1':
-        run_menu(1)
-    elif ch == '2':
-        run_menu(2)
-    elif ch == '0':
-        break
+if __name__ == "__main__":
+    while True:
+        print("\n=== Шифр Тритемиуса ===")
+        print("1. Зашифровать\n2. Расшифровать\n0. Выход")
+        ch = input(">> ")
+        if ch == '1':
+            run_menu(1)
+        elif ch == '2':
+            run_menu(2)
+        elif ch == '0':
+            break
