@@ -1,21 +1,21 @@
 <mxfile host="app.diagrams.net" pages="1">
   <diagram name="Хилл" id="HILL_MAIN">
-    <mxGraphModel dx="1836" dy="2816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="306" dy="80" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" /><mxCell id="1" parent="0" />
 
-        <!-- COL 1: encrypt_logic(text, matrix) -->
-        <mxCell id="T1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;encrypt_logic(text, matrix)&lt;/font&gt;" vertex="1"><mxGeometry x="0" y="20" width="240" height="20" as="geometry" /></mxCell>
-        <mxCell id="E1s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="0" y="79" width="240" height="40" as="geometry" /></mxCell>
-        <mxCell id="E1i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: text (строка), matrix 3×3 (ключ)" vertex="1"><mxGeometry x="0" y="159" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="E1tn" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Преобразование текста в числа А=1…Я=32 (text_to_nums)" vertex="1"><mxGeometry x="0" y="289" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="E1pd" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Дополнение нулями до кратности 3&#xa;Разбивка на 3-мерные вектора" vertex="1"><mxGeometry x="0" y="389" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="E1lp" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;" value="цикл: для каждого 3-мерного вектора v" vertex="1"><mxGeometry x="0" y="489" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="E1mm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="res_vec = matrix · v&#xa;(матричное умножение 3×3 × 3×1)&#xa;result.extend(res_vec)" vertex="1"><mxGeometry x="0" y="609" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="E1lev" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;rotation=-180;" value="" vertex="1"><mxGeometry x="0" y="729" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="E1le" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;opacity=0;" value="" vertex="1"><mxGeometry x="0" y="729" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="E1o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Возврат числового массива зашифрованных значений" vertex="1"><mxGeometry x="0" y="849" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="E1e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="0" y="979" width="240" height="40" as="geometry" /></mxCell>
+        
+        <mxCell id="T1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;encrypt_logic(text, matrix)&lt;/font&gt;" vertex="1"><mxGeometry x="54" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="E1s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="54" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="E1i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: текст и матрица ключа 3×3" vertex="1"><mxGeometry x="54" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="E1tn" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Вызов text_to_nums:&#10;преобразование каждой буквы в её номер (А=1, ..., Я=32)" vertex="1"><mxGeometry x="54" y="289" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="E1pd" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Дополнение текста нулями до кратности 3&#10;Разбивка на трёхмерные вектора" vertex="1"><mxGeometry x="54" y="389" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="E1lp" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;" value="Цикл для каждого вектора из 3 чисел" vertex="1"><mxGeometry x="54" y="489" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="E1mm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="вектор-результат = матрица × вектор (умножение 3×3 на 3×1)&#10;добавить числа вектора в строку результата" vertex="1"><mxGeometry x="54" y="609" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="E1lev" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;rotation=-180;" value="" vertex="1"><mxGeometry x="54" y="729" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="E1le" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;opacity=0;" value="" vertex="1"><mxGeometry x="54" y="729" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="E1o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Возврат массива чисел (зашифрованный текст)" vertex="1"><mxGeometry x="54" y="849" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="E1e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="54" y="979" width="240" height="40" as="geometry" /></mxCell>
         <mxCell id="ea1" edge="1" parent="1" source="E1s" target="E1i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ea2" edge="1" parent="1" source="E1i" target="E1tn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ea3" edge="1" parent="1" source="E1tn" target="E1pd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
@@ -23,24 +23,24 @@
         <mxCell id="ea5" edge="1" parent="1" source="E1lp" target="E1mm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ea6" edge="1" parent="1" source="E1mm" target="E1le" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ea7bk" edge="1" parent="1" source="E1le" target="E1lp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="-115" y="769" /><mxPoint x="-115" y="529" /></Array></mxGeometry>
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="-61" y="769" /><mxPoint x="-61" y="529" /></Array></mxGeometry>
         </mxCell>
         <mxCell id="ea8" edge="1" parent="1" source="E1le" target="E1o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ea9" edge="1" parent="1" source="E1o" target="E1e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <!-- COL 2: decrypt_logic(cipher_nums, matrix) -->
-        <mxCell id="T2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;decrypt_logic(cipher_nums, matrix)&lt;/font&gt;" vertex="1"><mxGeometry x="480" y="20" width="240" height="20" as="geometry" /></mxCell>
-        <mxCell id="D2s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="480" y="79" width="240" height="40" as="geometry" /></mxCell>
-        <mxCell id="D2i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: cipher_nums (числовой массив), matrix 3×3" vertex="1"><mxGeometry x="480" y="159" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="D2inv" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="inv_matrix = np.linalg.inv(matrix)&#xa;(обратная матрица ключа)" vertex="1"><mxGeometry x="480" y="289" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="D2rs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Разбивка cipher_nums на 3-мерные вектора" vertex="1"><mxGeometry x="480" y="389" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="D2lp" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;" value="цикл: для каждого зашифрованного вектора v" vertex="1"><mxGeometry x="480" y="489" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="D2mm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="res_vec = inv_matrix · v&#xa;decoded_nums.extend(res_vec)" vertex="1"><mxGeometry x="480" y="609" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="D2lev" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;rotation=-180;" value="" vertex="1"><mxGeometry x="480" y="729" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="D2le" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;opacity=0;" value="" vertex="1"><mxGeometry x="480" y="729" width="240" height="80" as="geometry" /></mxCell>
-        <mxCell id="D2nt" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Преобразование чисел в текст (nums_to_text)" vertex="1"><mxGeometry x="480" y="849" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="D2o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Возврат расшифрованного текста" vertex="1"><mxGeometry x="480" y="949" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="D2e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="480" y="1079" width="240" height="40" as="geometry" /></mxCell>
+        
+        <mxCell id="T2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;decrypt_logic(cipher_nums, matrix)&lt;/font&gt;" vertex="1"><mxGeometry x="534" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="D2s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="534" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="D2i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: массив чисел шифртекста и матрица ключа 3×3" vertex="1"><mxGeometry x="534" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="D2inv" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление обратной матрицы ключа (inv_matrix)" vertex="1"><mxGeometry x="534" y="289" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="D2rs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Разбивка массива чисел на трёхмерные вектора" vertex="1"><mxGeometry x="534" y="389" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="D2lp" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;" value="Цикл для каждого вектора" vertex="1"><mxGeometry x="534" y="489" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="D2mm" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="вектор-результат = обратная матрица × вектор&#10;добавить числа в массив расшифрованных" vertex="1"><mxGeometry x="534" y="609" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="D2lev" parent="1" style="shape=loopLimit;whiteSpace=wrap;html=1;rotation=-180;" value="" vertex="1"><mxGeometry x="534" y="729" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="D2le" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;opacity=0;" value="" vertex="1"><mxGeometry x="534" y="729" width="240" height="80" as="geometry" /></mxCell>
+        <mxCell id="D2nt" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Вызов nums_to_text:&#10;преобразование чисел в буквы алфавита" vertex="1"><mxGeometry x="534" y="849" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="D2o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Возврат расшифрованного текста" vertex="1"><mxGeometry x="534" y="949" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="D2e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="534" y="1079" width="240" height="40" as="geometry" /></mxCell>
         <mxCell id="eb1" edge="1" parent="1" source="D2s" target="D2i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="eb2" edge="1" parent="1" source="D2i" target="D2inv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="eb3" edge="1" parent="1" source="D2inv" target="D2rs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
@@ -48,7 +48,7 @@
         <mxCell id="eb5" edge="1" parent="1" source="D2lp" target="D2mm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="eb6" edge="1" parent="1" source="D2mm" target="D2le" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="eb7bk" edge="1" parent="1" source="D2le" target="D2lp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="365" y="769" /><mxPoint x="365" y="529" /></Array></mxGeometry>
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="504" y="769" /><mxPoint x="504" y="529" /></Array></mxGeometry>
         </mxCell>
         <mxCell id="eb8" edge="1" parent="1" source="D2le" target="D2nt" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="eb9" edge="1" parent="1" source="D2nt" target="D2o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>

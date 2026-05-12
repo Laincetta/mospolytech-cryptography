@@ -1,267 +1,267 @@
 <mxfile host="app.diagrams.net" pages="1">
   <diagram name="интерфейс" id="INTERFACE_MAIN">
-    <mxGraphModel dx="1836" dy="2816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="306" dy="80" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1539" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
-        <!-- ЗАГОЛОВОК -->
+        
         <mxCell id="T-title" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Функция main — главный интерфейс программы&lt;/font&gt;" vertex="1">
-          <mxGeometry x="174" y="20" width="480" height="20" as="geometry" />
+          <mxGeometry x="128" y="20" width="480" height="20" as="geometry" />
         </mxCell>
 
-        <!-- НАЧАЛО -->
+        
         <mxCell id="N-start" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1">
-          <mxGeometry x="294" y="79" width="240" height="40" as="geometry" />
+          <mxGeometry x="248" y="79" width="240" height="40" as="geometry" />
         </mxCell>
 
-        <!-- Edge: Начало → Вывод меню -->
+        
         <mxCell id="E-start-menu" edge="1" parent="1" source="N-start" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ВЫВОД МЕНЮ (параллелограмм — вывод) -->
+        
         <mxCell id="N-menu" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Вывод меню на экран (print_menu)" vertex="1">
-          <mxGeometry x="294" y="159" width="240" height="90" as="geometry" />
+          <mxGeometry x="248" y="159" width="240" height="90" as="geometry" />
         </mxCell>
 
-        <!-- Edge: Вывод меню → Ввод выбора -->
+        
         <mxCell id="E-menu-input" edge="1" parent="1" source="N-menu" target="N-input" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ВВОД ВЫБОРА (параллелограмм — ввод) -->
+        
         <mxCell id="N-input" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод выбора пользователя" vertex="1">
-          <mxGeometry x="294" y="289" width="240" height="90" as="geometry" />
+          <mxGeometry x="248" y="289" width="240" height="90" as="geometry" />
         </mxCell>
 
-        <!-- Edge: Ввод → Ромб '0' -->
+        
         <mxCell id="E-input-d0" edge="1" parent="1" source="N-input" target="D-exit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ──────────────────────────────────────────────────────── -->
-        <!-- РОМБ 1: пользователь выбрал выход? -->
+        
+        
         <mxCell id="D-exit" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="пользователь выбрал выход?" vertex="1">
-          <mxGeometry x="314" y="419" width="200" height="80" as="geometry" />
+          <mxGeometry x="268" y="419" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="L-exit-yes" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Да" vertex="1">
-          <mxGeometry x="522" y="447" width="60" height="20" as="geometry" />
+          <mxGeometry x="476" y="447" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="L-exit-no" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Нет" vertex="1">
-          <mxGeometry x="398" y="503" width="60" height="20" as="geometry" />
+          <mxGeometry x="352" y="503" width="60" height="20" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-exit Да → КОНЕЦ -->
+        
         <mxCell id="E-exit-yes" edge="1" parent="1" source="D-exit" target="N-end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- КОНЕЦ -->
+        
         <mxCell id="N-end" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1">
-          <mxGeometry x="620" y="439" width="180" height="40" as="geometry" />
+          <mxGeometry x="574" y="439" width="180" height="40" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-exit Нет → Ромб 'п' -->
+        
         <mxCell id="E-exit-no" edge="1" parent="1" source="D-exit" target="D-proverb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ──────────────────────────────────────────────────────── -->
-        <!-- РОМБ 2: выбран прогон пословицы? -->
+        
+        
         <mxCell id="D-proverb" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="выбран прогон пословицы?" vertex="1">
-          <mxGeometry x="314" y="539" width="200" height="80" as="geometry" />
+          <mxGeometry x="268" y="539" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="L-proverb-yes" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Да" vertex="1">
-          <mxGeometry x="522" y="567" width="60" height="20" as="geometry" />
+          <mxGeometry x="476" y="567" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="L-proverb-no" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Нет" vertex="1">
-          <mxGeometry x="398" y="623" width="60" height="20" as="geometry" />
+          <mxGeometry x="352" y="623" width="60" height="20" as="geometry" />
         </mxCell>
 
-        <!-- Процесс: прогон пословицы (вправо) -->
+        
         <mxCell id="P-proverb" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Прогон пословицы через все алгоритмы (run_all)" vertex="1">
-          <mxGeometry x="600" y="549" width="240" height="60" as="geometry" />
+          <mxGeometry x="554" y="549" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-proverb Да → P-proverb -->
+        
         <mxCell id="E-proverb-yes" edge="1" parent="1" source="D-proverb" target="P-proverb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-proverb Нет → Ромб 'т' -->
+        
         <mxCell id="E-proverb-no" edge="1" parent="1" source="D-proverb" target="D-test" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ──────────────────────────────────────────────────────── -->
-        <!-- РОМБ 3: выбран тест 1000 символов? -->
+        
+        
         <mxCell id="D-test" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="выбран тест 1000 символов?" vertex="1">
-          <mxGeometry x="314" y="659" width="200" height="80" as="geometry" />
+          <mxGeometry x="268" y="659" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="L-test-yes" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Да" vertex="1">
-          <mxGeometry x="522" y="687" width="60" height="20" as="geometry" />
+          <mxGeometry x="476" y="687" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="L-test-no" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Нет" vertex="1">
-          <mxGeometry x="398" y="743" width="60" height="20" as="geometry" />
+          <mxGeometry x="352" y="743" width="60" height="20" as="geometry" />
         </mxCell>
 
-        <!-- Процесс: тест 1000 символов (вправо) -->
+        
         <mxCell id="P-test" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Тест 1000 символов через все алгоритмы (run_all)" vertex="1">
-          <mxGeometry x="600" y="669" width="240" height="60" as="geometry" />
+          <mxGeometry x="554" y="669" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-test Да → P-test -->
+        
         <mxCell id="E-test-yes" edge="1" parent="1" source="D-test" target="P-test" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-test Нет → Ромб 'к' -->
+        
         <mxCell id="E-test-no" edge="1" parent="1" source="D-test" target="D-keys" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ──────────────────────────────────────────────────────── -->
-        <!-- РОМБ 4: выбран вывод таблицы ключей? -->
+        
+        
         <mxCell id="D-keys" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="выбран вывод таблицы ключей?" vertex="1">
-          <mxGeometry x="314" y="779" width="200" height="80" as="geometry" />
+          <mxGeometry x="268" y="779" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="L-keys-yes" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Да" vertex="1">
-          <mxGeometry x="522" y="807" width="60" height="20" as="geometry" />
+          <mxGeometry x="476" y="807" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="L-keys-no" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Нет" vertex="1">
-          <mxGeometry x="398" y="863" width="60" height="20" as="geometry" />
+          <mxGeometry x="352" y="863" width="60" height="20" as="geometry" />
         </mxCell>
 
-        <!-- Процесс: вывод таблицы ключей (вправо) -->
+        
         <mxCell id="P-keys" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Вывод таблицы ключей для отчёта (_print_keys_table)" vertex="1">
-          <mxGeometry x="600" y="789" width="240" height="60" as="geometry" />
+          <mxGeometry x="554" y="789" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-keys Да → P-keys -->
+        
         <mxCell id="E-keys-yes" edge="1" parent="1" source="D-keys" target="P-keys" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-keys Нет → Ромб число -->
+        
         <mxCell id="E-keys-no" edge="1" parent="1" source="D-keys" target="D-num" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ──────────────────────────────────────────────────────── -->
-        <!-- РОМБ 5: выбор — число от 1 до 27? -->
+        
+        
         <mxCell id="D-num" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="выбор — число от 1 до 27?" vertex="1">
-          <mxGeometry x="314" y="899" width="200" height="80" as="geometry" />
+          <mxGeometry x="268" y="899" width="200" height="80" as="geometry" />
         </mxCell>
         <mxCell id="L-num-yes" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Да" vertex="1">
-          <mxGeometry x="522" y="927" width="60" height="20" as="geometry" />
+          <mxGeometry x="476" y="927" width="60" height="20" as="geometry" />
         </mxCell>
         <mxCell id="L-num-no" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Нет" vertex="1">
-          <mxGeometry x="398" y="983" width="60" height="20" as="geometry" />
+          <mxGeometry x="352" y="983" width="60" height="20" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-num Да → P-dispatch -->
+        
         <mxCell id="E-num-yes" edge="1" parent="1" source="D-num" target="P-dispatch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Определение алгоритма по номеру -->
+        
         <mxCell id="P-dispatch" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Определение алгоритма по номеру (idx = int(choice) − 1)" vertex="1">
-          <mxGeometry x="600" y="909" width="240" height="60" as="geometry" />
+          <mxGeometry x="554" y="909" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Edge: P-dispatch → P-list -->
+        
         <mxCell id="E-dispatch-list" edge="1" parent="1" source="P-dispatch" target="P-list" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Список всех 27 алгоритмов -->
+        
         <mxCell id="P-list" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;1. Атбаш (Лаб 1)&lt;br&gt;2. Цезарь (Лаб 1)&lt;br&gt;3. Квадрат Полибия (Лаб 1)&lt;br&gt;4. S-блоки ГОСТ/Магма (Лаб 2)&lt;br&gt;5. Шифр Тритемиуса (Лаб 2)&lt;br&gt;6. Шифр Белазо (Лаб 2)&lt;br&gt;7. Шифр Виженера (Лаб 2)&lt;br&gt;8. Матричный шифр Хилла (Лаб 3)&lt;br&gt;9. Шифр Плейфера (Лаб 3)&lt;br&gt;10. Поворотная решётка Кардано (Лаб 4)&lt;br&gt;11. Сеть Фейстеля — ГОСТ 28147-89 (Лаб 4)&lt;br&gt;12. Вертикальная перестановка (Лаб 4)&lt;br&gt;13. Одноразовый блокнот Шеннона (Лаб 5)&lt;br&gt;14. Гаммирование Магма CTR — ГОСТ Р 34.13 (Лаб 5)&lt;br&gt;15. A5/1 (Лаб 6)&lt;br&gt;16. A5/2 (Лаб 6)&lt;br&gt;17. AES — FIPS-197 (Лаб 7)&lt;br&gt;18. Кузнечик — ГОСТ Р 34.12-2015 (Лаб 7)&lt;br&gt;19. Магма — ГОСТ Р 34.12-2015 (Лаб 7)&lt;br&gt;20. RSA (Лаб 8)&lt;br&gt;21. Эль-Гамаль (Лаб 8)&lt;br&gt;22. ЭКЦ — Эллиптические кривые (Лаб 8)&lt;br&gt;23. Подпись Эль-Гамаль (Лаб 9)&lt;br&gt;24. Подпись RSA (Лаб 9)&lt;br&gt;25. ГОСТ Р 34.10-94 (Лаб 10)&lt;br&gt;26. ГОСТ Р 34.10-2012 (ЭКЦ) (Лаб 10)&lt;br&gt;27. Диффи-Хеллман (Лаб 11)&lt;/font&gt;" vertex="1">
-          <mxGeometry x="600" y="989" width="240" height="430" as="geometry" />
+          <mxGeometry x="554" y="989" width="240" height="430" as="geometry" />
         </mxCell>
 
-        <!-- Edge: P-list → P-launch -->
+        
         <mxCell id="E-list-launch" edge="1" parent="1" source="P-list" target="P-launch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Запуск выбранного алгоритма -->
+        
         <mxCell id="P-launch" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Запуск выбранного алгоритма (_launch)" vertex="1">
-          <mxGeometry x="600" y="1439" width="240" height="60" as="geometry" />
+          <mxGeometry x="554" y="1439" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Процесс: вывод сообщения об ошибке (вниз) -->
+        
         <mxCell id="P-error" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вывод сообщения об ошибке" vertex="1">
-          <mxGeometry x="294" y="1029" width="240" height="60" as="geometry" />
+          <mxGeometry x="248" y="1029" width="240" height="60" as="geometry" />
         </mxCell>
 
-        <!-- Edge: D-num Нет → P-error -->
+        
         <mxCell id="E-num-no" edge="1" parent="1" source="D-num" target="P-error" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- ══════════════════════════════════════════════════════════ -->
-        <!-- СТРЕЛКИ ВОЗВРАТА К "Вывод меню" (левая рейка x=230) -->
-        <!-- ══════════════════════════════════════════════════════════ -->
+        
+        
+        
 
-        <!-- P-proverb → N-menu -->
+        
         <mxCell id="B-proverb" edge="1" parent="1" source="P-proverb" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="720" y="1580" />
-              <mxPoint x="230" y="1580" />
-              <mxPoint x="230" y="204" />
+              <mxPoint x="674" y="1580" />
+              <mxPoint x="184" y="1580" />
+              <mxPoint x="184" y="204" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- P-test → N-menu -->
+        
         <mxCell id="B-test" edge="1" parent="1" source="P-test" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="720" y="1580" />
-              <mxPoint x="230" y="1580" />
-              <mxPoint x="230" y="204" />
+              <mxPoint x="674" y="1580" />
+              <mxPoint x="184" y="1580" />
+              <mxPoint x="184" y="204" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- P-keys → N-menu -->
+        
         <mxCell id="B-keys" edge="1" parent="1" source="P-keys" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="720" y="1580" />
-              <mxPoint x="230" y="1580" />
-              <mxPoint x="230" y="204" />
+              <mxPoint x="674" y="1580" />
+              <mxPoint x="184" y="1580" />
+              <mxPoint x="184" y="204" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- P-launch → N-menu -->
+        
         <mxCell id="B-launch" edge="1" parent="1" source="P-launch" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="720" y="1580" />
-              <mxPoint x="230" y="1580" />
-              <mxPoint x="230" y="204" />
+              <mxPoint x="674" y="1580" />
+              <mxPoint x="184" y="1580" />
+              <mxPoint x="184" y="204" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- P-error → N-menu -->
+        
         <mxCell id="B-error" edge="1" parent="1" source="P-error" target="N-menu" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="414" y="1580" />
-              <mxPoint x="230" y="1580" />
-              <mxPoint x="230" y="204" />
+              <mxPoint x="368" y="1580" />
+              <mxPoint x="184" y="1580" />
+              <mxPoint x="184" y="204" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Пояснительный текст рядом с левой рейкой -->
+        
         <mxCell id="NOTE-back" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;← возврат к началу цикла&lt;/font&gt;" vertex="1">
-          <mxGeometry x="80" y="1060" width="160" height="30" as="geometry" />
+          <mxGeometry x="34" y="1060" width="160" height="30" as="geometry" />
         </mxCell>
 
       </root>

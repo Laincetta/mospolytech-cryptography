@@ -1,20 +1,20 @@
 <mxfile host="app.diagrams.net" pages="1">
   <diagram name="Диффи-Хеллман" id="DH_MAIN">
-    <mxGraphModel dx="1836" dy="2816" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="306" dy="80" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" /><mxCell id="1" parent="0" />
 
-        <!-- COL 1: Сторона A -->
-        <mxCell id="T1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Сторона A&lt;/font&gt;" vertex="1"><mxGeometry x="0" y="20" width="240" height="20" as="geometry" /></mxCell>
-        <mxCell id="A1s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="0" y="79" width="240" height="40" as="geometry" /></mxCell>
-        <mxCell id="A1i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: n (простое), a (основание, 1&lt;a&lt;n), KA (секретный ключ A)" vertex="1"><mxGeometry x="0" y="159" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="A1ya" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление открытого значения:&#xa;YA = a^KA mod n" vertex="1"><mxGeometry x="0" y="289" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="A1pub" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Отправка YA стороне B&#xa;(по открытому каналу)" vertex="1"><mxGeometry x="0" y="389" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="A1recv" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Получение YB от стороны B&#xa;(по открытому каналу)" vertex="1"><mxGeometry x="0" y="519" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="A1ka" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление общего секрета:&#xa;Ka = YB^KA mod n" vertex="1"><mxGeometry x="0" y="649" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="A1ck" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Проверка безопасности:&#xa;Ka &gt; 1, Ka ≠ KA,&#xa;Ka ≠ YA, Ka ≠ YB" vertex="1"><mxGeometry x="0" y="749" width="240" height="70" as="geometry" /></mxCell>
-        <mxCell id="A1o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Общий ключ Ka (сессионный ключ)" vertex="1"><mxGeometry x="0" y="859" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="A1e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="0" y="989" width="240" height="40" as="geometry" /></mxCell>
+        
+        <mxCell id="T1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Сторона A&lt;/font&gt;" vertex="1"><mxGeometry x="54" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="A1s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="54" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="A1i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: n (простое число), a (основание, 1 &amp;lt; a &amp;lt; n),&#10;KA (секретный ключ стороны A)" vertex="1"><mxGeometry x="54" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="A1ya" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление открытого значения:&#10;YA = a^KA mod n" vertex="1"><mxGeometry x="54" y="289" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="A1pub" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Отправка YA стороне B&#10;(по открытому каналу)" vertex="1"><mxGeometry x="54" y="389" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="A1recv" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Получение YB от стороны B&#10;(по открытому каналу)" vertex="1"><mxGeometry x="54" y="519" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="A1ka" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление общего секрета:&#10;Ka = YB^KA mod n" vertex="1"><mxGeometry x="54" y="649" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="A1ck" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Проверка корректности общего секрета:&#10;Ka &amp;gt; 1,  Ka ≠ KA,  Ka ≠ YA,  Ka ≠ YB" vertex="1"><mxGeometry x="54" y="749" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="A1o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Общий сессионный ключ Ka" vertex="1"><mxGeometry x="54" y="859" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="A1e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="54" y="989" width="240" height="40" as="geometry" /></mxCell>
         <mxCell id="aa1" edge="1" parent="1" source="A1s" target="A1i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="aa2" edge="1" parent="1" source="A1i" target="A1ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="aa3" edge="1" parent="1" source="A1ya" target="A1pub" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
@@ -24,17 +24,17 @@
         <mxCell id="aa7" edge="1" parent="1" source="A1ck" target="A1o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="aa8" edge="1" parent="1" source="A1o" target="A1e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <!-- COL 2: Сторона B -->
-        <mxCell id="T2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Сторона B&lt;/font&gt;" vertex="1"><mxGeometry x="480" y="20" width="240" height="20" as="geometry" /></mxCell>
-        <mxCell id="B2s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="480" y="79" width="240" height="40" as="geometry" /></mxCell>
-        <mxCell id="B2i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: n (простое), a (основание, 1&lt;a&lt;n), KB (секретный ключ B)" vertex="1"><mxGeometry x="480" y="159" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="B2yb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление открытого значения:&#xa;YB = a^KB mod n" vertex="1"><mxGeometry x="480" y="289" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="B2pub" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Отправка YB стороне A&#xa;(по открытому каналу)" vertex="1"><mxGeometry x="480" y="389" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="B2recv" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Получение YA от стороны A&#xa;(по открытому каналу)" vertex="1"><mxGeometry x="480" y="519" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="B2kb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление общего секрета:&#xa;Kb = YA^KB mod n" vertex="1"><mxGeometry x="480" y="649" width="240" height="60" as="geometry" /></mxCell>
-        <mxCell id="B2ck" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Проверка безопасности:&#xa;Kb &gt; 1, Kb ≠ KB,&#xa;Kb ≠ YA, Kb ≠ YB" vertex="1"><mxGeometry x="480" y="749" width="240" height="70" as="geometry" /></mxCell>
-        <mxCell id="B2o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Общий ключ Kb (сессионный ключ)" vertex="1"><mxGeometry x="480" y="859" width="240" height="90" as="geometry" /></mxCell>
-        <mxCell id="B2e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="480" y="989" width="240" height="40" as="geometry" /></mxCell>
+        
+        <mxCell id="T2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;" value="&lt;font style=&quot;font-size:14px&quot;&gt;Сторона B&lt;/font&gt;" vertex="1"><mxGeometry x="534" y="20" width="240" height="20" as="geometry" /></mxCell>
+        <mxCell id="B2s" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Начало" vertex="1"><mxGeometry x="534" y="79" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="B2i" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Ввод: n (простое число), a (основание, 1 &amp;lt; a &amp;lt; n),&#10;KB (секретный ключ стороны B)" vertex="1"><mxGeometry x="534" y="159" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="B2yb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление открытого значения:&#10;YB = a^KB mod n" vertex="1"><mxGeometry x="534" y="289" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="B2pub" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Отправка YB стороне A&#10;(по открытому каналу)" vertex="1"><mxGeometry x="534" y="389" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="B2recv" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Получение YA от стороны A&#10;(по открытому каналу)" vertex="1"><mxGeometry x="534" y="519" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="B2kb" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Вычисление общего секрета:&#10;Kb = YA^KB mod n" vertex="1"><mxGeometry x="534" y="649" width="240" height="60" as="geometry" /></mxCell>
+        <mxCell id="B2ck" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Проверка корректности общего секрета:&#10;Kb &amp;gt; 1,  Kb ≠ KB,  Kb ≠ YA,  Kb ≠ YB" vertex="1"><mxGeometry x="534" y="749" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="B2o" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Общий сессионный ключ Kb" vertex="1"><mxGeometry x="534" y="859" width="240" height="90" as="geometry" /></mxCell>
+        <mxCell id="B2e" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Конец" vertex="1"><mxGeometry x="534" y="989" width="240" height="40" as="geometry" /></mxCell>
         <mxCell id="ba1" edge="1" parent="1" source="B2s" target="B2i" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ba2" edge="1" parent="1" source="B2i" target="B2yb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ba3" edge="1" parent="1" source="B2yb" target="B2pub" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
@@ -44,12 +44,12 @@
         <mxCell id="ba7" edge="1" parent="1" source="B2ck" target="B2o" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="ba8" edge="1" parent="1" source="B2o" target="B2e" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <!-- Cross-channel arrows between A and B -->
+        
         <mxCell id="cross1" edge="1" parent="1" source="A1pub" target="B2recv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#0000FF;" value="YA →"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="cross2" edge="1" parent="1" source="B2pub" target="A1recv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;strokeColor=#0000FF;" value="← YB"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <!-- Result equivalence label -->
-        <mxCell id="Req" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#999999;fillColor=#f5f5f5;fontColor=#333333;align=center;verticalAlign=middle;" value="Ka = Kb = a^(KA×KB) mod n&#xa;(общий секретный ключ)" vertex="1"><mxGeometry x="160" y="1060" width="400" height="50" as="geometry" /></mxCell>
+        
+        <mxCell id="Req" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=#999999;fillColor=#f5f5f5;fontColor=#333333;align=center;verticalAlign=middle;" value="Ka = Kb = a^(KA×KB) mod n&#10;(общий секретный ключ)" vertex="1"><mxGeometry x="214" y="1060" width="400" height="50" as="geometry" /></mxCell>
 
       </root>
     </mxGraphModel>
