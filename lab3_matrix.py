@@ -1,10 +1,21 @@
+"""
+Блок С: ШИФРЫ БЛОЧНОЙ ЗАМЕНЫ
+8. Матричный шифр  (ЛАБКРИПТ_2022)
+
+Буквы нумеруются как элементы кольца (А=1…Я=32, пробел=0). n-грамма открытого
+текста (вектор-блок B) умножается на ключевую матрицу A:
+    вектор шифртекста  C = A · B,  по элементам  C_i = Σ_j a_ij · b_j.
+Расшифрование — обратной матрицей:  B = A^(-1) · C.
+Числовой эквивалент открытого слова обозначается T_Э.
+"""
+
 import numpy as np
 
 
 def get_matrix():
-    """Ввод элементов матрицы ключа 3x3 с проверкой на обратимость."""
+    """Ввод ключевой матрицы A (3x3) с проверкой обратимости (det ≠ 0)."""
     print("\nВведите элементы матрицы 3x3 по очереди:")
-    matrix = []
+    A_rows = []
     for i in range(3):
         row = []
         for j in range(3):
@@ -15,23 +26,23 @@ def get_matrix():
                     break
                 except ValueError:
                     print("Ошибка! Введите целое число.")
-        matrix.append(row)
+        A_rows.append(row)
 
-    matrix_np = np.array(matrix)
-    # Считаем определитель для проверки
-    det = np.linalg.det(matrix_np)
+    A = np.array(A_rows)
+    # Считаем определитель |A| для проверки обратимости
+    det = np.linalg.det(A)
 
     if abs(det) < 1e-10:
         print("\nОшибка: Определитель равен 0, матрица не подходит!")
         return None
 
     print("\nКлюч успешно установлен:")
-    print(matrix_np)
-    return matrix_np
+    print(A)
+    return A
 
 
 def text_to_nums(text):
-    """Преобразование текста в числа (А=1...Я=32). Пробел = 0."""
+    """Числовой эквивалент T_Э: текст → числа (А=1...Я=32). Пробел = 0."""
     alphabet = " АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
     return [alphabet.find(c.upper()) for c in text if c.upper() in alphabet]
 
@@ -50,39 +61,55 @@ def nums_to_text(nums):
     return res.strip()
 
 
-def encrypt_logic(text, matrix):
-    """Шифрование: C = A * B."""
-    nums = text_to_nums(text)
+def replace(text):
+    """Предобработка: знаки препинания и пробелы → буквенные коды (. → ТЧК и т. п.)."""
+    replacements = {'.': 'ТЧК', '—': 'ТИРЕ', '–': 'ТИРЕ', '-': 'ТИРЕ', ',': 'ЗПТ',
+                    '!': 'ВСКЛ', '?': 'ВПРС', '«': 'КВЧЛ', '»': 'КВЧП', ' ': 'ПРБ'}
+    return "".join(replacements.get(c, c) for c in text.upper())
 
-    # Дополняем нулями (индекс пробела) до кратности 3
+
+def restore(text):
+    """Постобработка: буквенные коды → знаки препинания и пробелы (ТЧК → . и т. п.)."""
+    replacements = {'ТЧК': '.', 'ТИРЕ': '—', 'ЗПТ': ',', 'ВСКЛ': '!',
+                    'ВПРС': '?', 'КВЧЛ': '«', 'КВЧП': '»', 'ПРБ': ' '}
+    for code, symbol in replacements.items():
+        text = text.replace(code, symbol)
+    return text
+
+
+def encrypt_logic(text, A):
+    """Шифрование: вектор шифртекста C = A · B (B — вектор-блок T_Э)."""
+    nums = text_to_nums(replace(text))
+
+    # Дополняем нулями (индекс пробела) до кратности 3 (триграммы)
     while len(nums) % 3 != 0:
         nums.append(0)
 
-    vecs = np.array(nums).reshape(-1, 3)
+    blocks = np.array(nums).reshape(-1, 3)
     result = []
-    for v in vecs:
-        res_vec = matrix.dot(v)  # Умножение матрицы на вектор-блок
-        result.extend(res_vec)
+    for B in blocks:
+        C = A.dot(B)  # C = A · B — умножение ключевой матрицы на вектор-блок
+        result.extend(C)
 
     return result
 
 
-def decrypt_logic(cipher_nums, matrix):
-    """Расшифрование: B = A^-1 * C."""
-    # Вычисляем обратную матрицу
-    inv_matrix = np.linalg.inv(matrix)
+def decrypt_logic(cipher_nums, A):
+    """Расшифрование: вектор-блок B = A^(-1) · C."""
+    # Вычисляем обратную матрицу A^(-1)
+    A_inv = np.linalg.inv(A)
 
-    vecs = np.array(cipher_nums).reshape(-1, 3)
+    blocks = np.array(cipher_nums).reshape(-1, 3)
     decoded_nums = []
-    for v in vecs:
-        res_vec = inv_matrix.dot(v)  # Умножение обратной матрицы на вектор шифра
-        decoded_nums.extend(res_vec)
+    for C in blocks:
+        B = A_inv.dot(C)  # B = A^(-1) · C — умножение обратной матрицы на вектор шифра
+        decoded_nums.extend(B)
 
-    return nums_to_text(decoded_nums)
+    return restore(nums_to_text(decoded_nums))
 
 
 def main():
-    matrix = None
+    A = None
 
     while True:
         print("\n--- МЕНЮ ---")
@@ -94,19 +121,19 @@ def main():
         choice = input("Выберите действие: ").strip()
 
         if choice == '1':
-            matrix = get_matrix()
+            A = get_matrix()
 
         elif choice == '2':
-            if matrix is None:
+            if A is None:
                 print("Сначала введите ключ!")
                 continue
 
             user_text = input("Введите текст: ")
-            cipher_result = encrypt_logic(user_text, matrix)
+            cipher_result = encrypt_logic(user_text, A)
             print(f"\nЗашифрованные числа:\n{' '.join(map(str, cipher_result))}")
 
         elif choice == '3':
-            if matrix is None:
+            if A is None:
                 print("Сначала введите ключ!")
                 continue
 
@@ -115,7 +142,7 @@ def main():
                 cipher_nums = list(map(float, raw_input.split()))
 
                 # Теперь длина не нужна, функция сама отсечет лишние пробелы в конце
-                decrypted_text = decrypt_logic(cipher_nums, matrix)
+                decrypted_text = decrypt_logic(cipher_nums, A)
                 print(f"\nРасшифрованный текст: {decrypted_text}")
             except Exception as e:
                 print(f"Ошибка: {e}")

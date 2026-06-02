@@ -1,0 +1,25 @@
+<mxfile host="app.diagrams.net" pages="1">
+  <diagram name="восстановление спецсимволов" id="RESTORE">
+    <mxGraphModel dx="640" dy="480" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="510" pageHeight="1186" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="a_nb" value="начало" style="rounded=1;arcSize=50;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="160" y="96" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a_n1" value="Получение текста с буквенными кодами" style="shape=parallelogram;perimeter=parallelogramPerimeter;size=0.1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="70" y="236" width="380" height="58" as="geometry"/></mxCell>
+        <mxCell id="a_n2" value="Копирование текста в результат" style="rounded=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="80" y="376" width="360" height="58" as="geometry"/></mxCell>
+        <mxCell id="a_n3" value="Для каждой пары «код → символ»" style="shape=loopLimit;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="90" y="516" width="340" height="52" as="geometry"/></mxCell>
+        <mxCell id="a_n4" value="Заменить в результате все вхождения кода на символ (например «ТЧК» → «.»)" style="rounded=0;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="80" y="656" width="360" height="62" as="geometry"/></mxCell>
+        <mxCell id="a_n5" value="Для каждой пары «код → символ»" style="shape=loopLimit;flipV=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="90" y="796" width="340" height="52" as="geometry"/></mxCell>
+        <mxCell id="e_a_nb_a_n1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_nb" target="a_n1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a_n1_a_n2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_n1" target="a_n2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a_n2_a_n3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_n2" target="a_n3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a_n3_a_n4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_n3" target="a_n4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a_n4_a_n5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_n4" target="a_n5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a_t1" value="Возврат восстановленного текста" style="shape=parallelogram;perimeter=parallelogramPerimeter;size=0.1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="70" y="936" width="380" height="58" as="geometry"/></mxCell>
+        <mxCell id="a_ne" value="конец" style="rounded=1;arcSize=50;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontSize=11;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="160" y="1076" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="e_a_n5_a_t1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_n5" target="a_t1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_a_t1_a_ne" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeWidth=1.5;fontSize=11;fontColor=#000000;labelBackgroundColor=#FFFFFF;jettySize=auto;" edge="1" parent="1" source="a_t1" target="a_ne"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

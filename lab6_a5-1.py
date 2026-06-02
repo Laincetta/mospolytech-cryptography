@@ -1,3 +1,16 @@
+"""
+Блок F: ПОТОЧНЫЕ ШИФРЫ
+15. А5/1  (ЛАБКРИПТ_2022)
+
+Генератор гаммы на трёх РСЛОС (регистрах сдвига с линейной обратной связью):
+R1 — 19 бит, R2 — 22 бита, R3 — 23 бита. Многочлены обратной связи:
+    R1: x^19+x^18+x^17+x^14+1,  R2: x^22+x^21+1,  R3: x^23+x^22+x^21+x^8+1.
+Биты синхронизации: 8 (R1), 10 (R2), 10 (R3). Тактирование по мажоритарной
+функции F = x&y | x&z | y&z (режим stop-and-go): сдвигаются лишь те регистры,
+у которых бит синхронизации равен F. Выходной бит — XOR старших битов трёх
+регистров; гамма складывается по модулю 2 с открытым текстом.
+"""
+
 alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 
 def replace(text):
@@ -67,9 +80,6 @@ class A5_1:
             self.r1.shift(bit)
             self.r2.shift(bit)
             self.r3.shift(bit)
-            self.r1.log_register(i, 1)
-            self.r2.log_register(i, 2)
-            self.r3.log_register(i, 3)
 
         for i in range(22):
             bit = (frame_number >> i) & 1
@@ -141,7 +151,8 @@ def run_menu(mode):
 
     message = input("Текст: ")
 
-    processed_msg = replace(message)
+    # Замена спецсимволов кодами выполняется только при шифровании
+    processed_msg = replace(message) if mode == "ШИФРОВАНИЕ" else message
     msg_bits = text_to_bits(processed_msg)
 
     print(f"\nДвоичный код: {''.join(map(str, msg_bits))}")

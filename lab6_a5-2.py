@@ -1,34 +1,48 @@
+"""
+Блок F: ПОТОЧНЫЕ ШИФРЫ
+16. А5/2  (ЛАБКРИПТ_2022)
+
+Развитие A5/1: добавлен четвёртый регистр R4 (17 бит), который УПРАВЛЯЕТ
+тактированием R1, R2, R3. Регистры и многочлены обратной связи:
+    R1 — 19 бит: x^19+x^18+x^17+x^14+1,
+    R2 — 22 бита: x^22+x^21+1,
+    R3 — 23 бита: x^23+x^22+x^21+x^8+1,
+    R4 — 17 бит: x^17+x^12+1.
+Тактирование: F = majority(R4[3], R4[7], R4[10]); R1 сдвигается если R4[10]=F,
+R2 — если R4[3]=F, R3 — если R4[7]=F; R4 сдвигается каждый такт.
+Выходной бит = XOR старших битов R1[18],R2[21],R3[22] и мажоритарных функций
+определённых битов: R1(12,14,15), R2(9,13,16), R3(13,16,18).
+Символы текста и гаммы складываются по модулю 2 (XOR).
+"""
+
 alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 
 
 def replace(text):
-    replacements = {
-        '.': 'тчк', '—': 'тире', '-': 'тире', ',': 'зпт',
-        '!': 'вскл', '?': 'впрс', '«': 'квчл', '»': 'квчп', ' ': 'прб'
-    }
-    result = ""
-    for i in text.lower():
-        result += replacements.get(i, i)
-    return result
+    replacements = {'.': 'тчк', '—': 'тире', '-': 'тире', ',': 'зпт', '!': 'вскл',
+                    '?': 'впрс', '«': 'квчл', '»': 'квчп', ' ': 'прб'}
+    return ''.join(replacements.get(c, c) for c in text)
 
 
 def restore(text):
-    replacements = [
-        ('тчк', '.'), ('тире', '—'), ('зпт', ','), ('вскл', '!'),
-        ('впрс', '?'), ('квчл', '«'), ('квчп', '»'), ('прб', ' ')
-    ]
-    result = text
+    replacements = [('тчк', '.'), ('тире', '—'), ('зпт', ','), ('вскл', '!'),
+                    ('впрс', '?'), ('квчл', '«'), ('квчп', '»'), ('прб', ' ')]
     for code, symbol in replacements:
-        result = result.replace(code, symbol)
-    return result
+        text = text.replace(code, symbol)
+    return text
 
 
 class Register:
+    """РСЛОС: биты хранятся в целом числе, разряд 0 — младший."""
+
     def __init__(self, length, feedback, mask):
         self.length = length
-        self.feedback = feedback
+        self.feedback = feedback     # позиции битов обратной связи
         self.mask = mask
         self.reg = 0
+
+    def bit(self, pos):
+        return (self.reg >> pos) & 1
 
     def shift(self, injecting_bit=0):
         fb = 0
@@ -36,6 +50,13 @@ class Register:
             fb ^= (self.reg >> fb_inx) & 1
         new_bit = fb ^ injecting_bit
         self.reg = ((self.reg << 1) | new_bit) & self.mask
+
+    def msb(self):
+        return (self.reg >> (self.length - 1)) & 1
+
+
+def majority(x, y, z):
+    return (x & y) | (x & z) | (y & z)
 
 
 class A5_2:
@@ -45,53 +66,42 @@ class A5_2:
         self.r3 = Register(23, [7, 20, 21, 22], 0x7FFFFF)
         self.r4 = Register(17, [11, 16], 0x1FFFF)
 
+        # 1) загрузка сеансового ключа (64 такта) — тактируются все 4 регистра
         for i in range(64):
             bit = (key_int >> i) & 1
-            self.r1.shift(bit)
-            self.r2.shift(bit)
-            self.r3.shift(bit)
-            self.r4.shift(bit)
-
+            self._clock_all(bit)
+        # 2) загрузка номера кадра (22 такта)
         for i in range(22):
             bit = (frame_number >> i) & 1
-            self.r1.shift(bit)
-            self.r2.shift(bit)
-            self.r3.shift(bit)
-            self.r4.shift(bit)
-
-        self.r4.reg |= (1 << 3) | (1 << 7) | (1 << 10)
-
+            self._clock_all(bit)
+        # 3) принудительно ставим биты R4(3), R4(7), R4(10) = 1
+        for p in (3, 7, 10):
+            self.r4.reg |= (1 << p)
+        # 4) 99 тактов с управлением сдвигами (без выдачи гаммы)
         for _ in range(99):
-            self.clock_with_majority()
+            self.clock_controlled()
 
-    def maj(self, x, y, z):
-        return (x & y) | (x & z) | (y & z)
+    def _clock_all(self, bit):
+        self.r1.shift(bit); self.r2.shift(bit)
+        self.r3.shift(bit); self.r4.shift(bit)
 
-    def clock_with_majority(self, generate_gamma_bit=False):
-        r4_3 = (self.r4.reg >> 3) & 1
-        r4_7 = (self.r4.reg >> 7) & 1
-        r4_10 = (self.r4.reg >> 10) & 1
-
-        f = self.maj(r4_3, r4_7, r4_10)
-
-        if ((self.r4.reg >> 10) & 1) == f: self.r1.shift()
-        if ((self.r4.reg >> 3) & 1) == f: self.r2.shift()
-        if ((self.r4.reg >> 7) & 1) == f: self.r3.shift()
-
+    def clock_controlled(self, generate_gamma_bit=False):
+        f = majority(self.r4.bit(3), self.r4.bit(7), self.r4.bit(10))
+        if self.r4.bit(10) == f: self.r1.shift()
+        if self.r4.bit(3) == f:  self.r2.shift()
+        if self.r4.bit(7) == f:  self.r3.shift()
+        out = self._out_bit() if generate_gamma_bit else None
         self.r4.shift()
+        return out
 
-        if generate_gamma_bit:
-            out1 = ((self.r1.reg >> 18) & 1) ^ self.maj((self.r1.reg >> 12) & 1, (self.r1.reg >> 14) & 1,
-                                                        (self.r1.reg >> 15) & 1)
-            out2 = ((self.r2.reg >> 21) & 1) ^ self.maj((self.r2.reg >> 9) & 1, (self.r2.reg >> 13) & 1,
-                                                        (self.r2.reg >> 16) & 1)
-            out3 = ((self.r3.reg >> 22) & 1) ^ self.maj((self.r3.reg >> 13) & 1, (self.r3.reg >> 16) & 1,
-                                                        (self.r3.reg >> 18) & 1)
-            return out1 ^ out2 ^ out3
-        return None
+    def _out_bit(self):
+        return (self.r1.msb() ^ self.r2.msb() ^ self.r3.msb()
+                ^ majority(self.r1.bit(12), self.r1.bit(14), self.r1.bit(15))
+                ^ majority(self.r2.bit(9), self.r2.bit(13), self.r2.bit(16))
+                ^ majority(self.r3.bit(13), self.r3.bit(16), self.r3.bit(18)))
 
     def get_keystream(self, length):
-        return [self.clock_with_majority(generate_gamma_bit=True) for _ in range(length)]
+        return [self.clock_controlled(generate_gamma_bit=True) for _ in range(length)]
 
 
 def text_to_bits(text):
@@ -107,7 +117,8 @@ def bits_to_text(bits):
     text = ""
     for i in range(0, len(bits), 5):
         chunk = bits[i:i + 5]
-        if len(chunk) < 5: break
+        if len(chunk) < 5:
+            break
         idx = 0
         for bit in chunk:
             idx = (idx << 1) | bit
@@ -116,7 +127,7 @@ def bits_to_text(bits):
 
 
 def run_menu(mode):
-    print(f"\n--- {mode} (A5/2) ---")
+    print(f"\n--- {mode} ---")
     print("1. Слово\n2. HEX")
     k_type = input("Тип ключа: ")
     raw_key = input("Ключ: ")
@@ -129,14 +140,15 @@ def run_menu(mode):
             print("ОШИБКА: Ключ превышает 64 бита!")
             return
         key_int = 0
-        for b in k_bits: key_int = (key_int << 1) | b
+        for b in k_bits:
+            key_int = (key_int << 1) | b
 
     if key_int > 0xFFFFFFFFFFFFFFFF:
         print("ОШИБКА: Ключ превышает 64 бита!")
         return
 
     message = input("Текст: ")
-    processed_msg = replace(message)
+    processed_msg = replace(message) if mode == "ШИФРОВАНИЕ" else message
     msg_bits = text_to_bits(processed_msg)
 
     print(f"\nДвоичный код: {''.join(map(str, msg_bits))}")
@@ -149,14 +161,13 @@ def run_menu(mode):
     print(f"Результат:    {''.join(map(str, res_bits))}")
 
     final_text = bits_to_text(res_bits)
-
     if mode == "РАСШИФРОВАНИЕ":
         print(f"\nИТОГ: {restore(final_text)}")
     else:
         print(f"\nИТОГ: {final_text}")
 
 
-if __name__ == "__main__":
+def main():
     while True:
         print("\n=== A5/2 ===")
         print("1. Зашифровать\n2. Расшифровать\n0. Выход")
@@ -167,3 +178,7 @@ if __name__ == "__main__":
             run_menu("РАСШИФРОВАНИЕ")
         elif ch == '0':
             break
+
+
+if __name__ == "__main__":
+    main()

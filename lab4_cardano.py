@@ -1,3 +1,15 @@
+"""
+Блок D: ШИФРЫ ПЕРЕСТАНОВКИ
+11. Решетка Кардано (поворотная решётка)  (ЛАБКРИПТ_2022)
+
+Частный случай маршрутной перестановки. Используется трафарет (решётка)
+размером 2m×2k с вырезанными m·k клетками так, что при наложении на лист
+четырьмя поворотами вырезы полностью покрывают всю площадь. Буквы вписываются
+в вырезы при каждом из 4 положений; пустые клетки заполняются «пустышками»
+(случайными буквами). Шифртекст выписывается построчно.
+Число ключей (трафаретов):  T = 4^(m·k).
+"""
+
 import math
 import random
 
@@ -40,6 +52,15 @@ def replace_punctuation(text):
     for i in text:
         result += replacements.get(i, i)
     return result
+
+
+def restore_punctuation(text):
+    """Возвращает буквенные коды в знаки препинания (пробелы при шифровании удаляются)."""
+    replacements = {'ТЧК': '.', 'ТИРЕ': '—', 'ЗПТ': ',', 'ВСКЛ': '!',
+                    'ВПРС': '?', 'КВЧЛ': '«', 'КВЧП': '»'}
+    for code, symbol in replacements.items():
+        text = text.replace(code, symbol)
+    return text
 
 
 def clean_final(text):
@@ -111,7 +132,8 @@ def decrypt(text):
         for i, j in positions:
             result.append(table[i][j])
 
-    return "".join(result).lower()
+    # Постобработка: буквенные коды → знаки препинания (пробелы не восстанавливаются)
+    return restore_punctuation("".join(result)).lower()
 
 
 def format5(text):
@@ -138,7 +160,7 @@ def main():
         elif choice == '2':
             text = input("Введите шифртекст: ").replace(' ', '')
             res = decrypt(text)
-            print(f"\nРасшифрованный текст (с кодами):")
+            print(f"\nРасшифрованный текст:")
             print(res)
         elif choice == '3':
             print("Программа завершена.")

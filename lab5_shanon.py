@@ -1,6 +1,14 @@
 """
-ШИФР ШЕННОНА (ГАММИРОВАНИЕ С ЛКГ)
-Автономная версия без внешних зависимостей
+Блок E: ШИФРЫ ГАММИРОВАНИЯ
+13. Одноразовый блокнот К.Шеннона  (ЛАБКРИПТ_2022)
+
+Шифртекст:  c_i = m_i ⊕ k_i  (для символьной гаммы — сложение по модулю
+мощности алфавита m = 32). Гамма Γ вырабатывается линейным конгруэнтным
+генератором (ЛКГ):
+    T(i+1) = (a·T(i) + c) mod m.
+Условия максимального периода (теорема Халла — Добелла): c нечётно, a ≡ 1 (mod 4)
+при m = 2^S. Для символьной гаммы: a нечётно, c взаимно просто с m.
+Автономная версия без внешних зависимостей.
 """
 
 ALPHABET = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
@@ -56,6 +64,22 @@ def format_numbers(numbers):
     return ' '.join(f"{num:02d}" for num in numbers)
 
 
+def replace(text):
+    """Предобработка: знаки препинания и пробелы → буквенные коды (. → тчк и т. п.)."""
+    replacements = {'.': 'тчк', '—': 'тире', '–': 'тире', '-': 'тире', ',': 'зпт',
+                    '!': 'вскл', '?': 'впрс', '«': 'квчл', '»': 'квчп', ' ': 'прб'}
+    return ''.join(replacements.get(c, c) for c in text.lower())
+
+
+def restore(text):
+    """Постобработка: буквенные коды → знаки препинания и пробелы (тчк → . и т. п.)."""
+    replacements = {'тчк': '.', 'тире': '—', 'зпт': ',', 'вскл': '!',
+                    'впрс': '?', 'квчл': '«', 'квчп': '»', 'прб': ' '}
+    for code, symbol in replacements.items():
+        text = text.replace(code, symbol)
+    return text
+
+
 def shannon_otp(text, question2):
     """
     Шифрование (question2=1) или расшифрование (question2=2)
@@ -64,10 +88,9 @@ def shannon_otp(text, question2):
     # === БЛОК 1: преобразование входного текста в числа ===
     if question2 == 1:
         # Режим шифрования — на входе обычный текст
-        is_valid, msg = check_is_text(text)
-        if not is_valid:
-            return f"Ошибка: {msg}"
-        text = text.replace(' ', '').lower()
+        # Предобработка: знаки препинания и пробелы заменяются буквенными кодами
+        text = replace(text.lower())
+        text = ''.join(ch for ch in text if ch in ALPHABET)
         if not text:
             return "Ошибка: пустой текст"
         text_nums = text_to_numbers(text)
@@ -157,9 +180,9 @@ def shannon_otp(text, question2):
                 s = ALPHABET_LEN
             result_nums.append(s)
 
-        plain_text = numbers_to_text(result_nums)
-        formatted = format_with_spaces(plain_text)
-        return f"Расшифрованный текст: {formatted}"
+        # Постобработка: буквенные коды возвращаются в знаки препинания и пробелы
+        plain_text = restore(numbers_to_text(result_nums))
+        return f"Расшифрованный текст: {plain_text}"
 
 
 def main_menu():
